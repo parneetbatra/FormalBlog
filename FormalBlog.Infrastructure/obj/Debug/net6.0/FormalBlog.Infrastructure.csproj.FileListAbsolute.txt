@@ -1,0 +1,16 @@
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\bin\Debug\net6.0\FormalBlog.Infrastructure.deps.json
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\bin\Debug\net6.0\FormalBlog.Infrastructure.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\bin\Debug\net6.0\ref\FormalBlog.Infrastructure.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\bin\Debug\net6.0\FormalBlog.Infrastructure.pdb
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\FormalBlog.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\FormalBlog.Infrastructure.AssemblyInfoInputs.cache
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\FormalBlog.Infrastructure.AssemblyInfo.cs
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\FormalBlog.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\FormalBlog.Infrastructure.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\ref\FormalBlog.Infrastructure.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\FormalBlog.Infrastructure.pdb
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\bin\Debug\net6.0\appsettings.json
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\bin\Debug\net6.0\FormalBlog.Infrastructure.runtimeconfig.json
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\bin\Debug\net6.0\FormalBlog.Infrastructure.runtimeconfig.dev.json
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\FormalBlog.Infrastructure.csprojAssemblyReference.cache
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Infrastructure\obj\Debug\net6.0\FormalBlog.Infrastructure.genruntimeconfig.cache

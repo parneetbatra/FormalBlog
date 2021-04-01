@@ -1,0 +1,16 @@
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\bin\Debug\net6.0\FormalBlog.Infrastructure.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\FormalBlog.Core.csprojAssemblyReference.cache
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\FormalBlog.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\FormalBlog.Core.AssemblyInfoInputs.cache
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\FormalBlog.Core.AssemblyInfo.cs
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\FormalBlog.Core.csproj.CoreCompileInputs.cache
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\bin\Debug\net6.0\FormalBlog.Core.deps.json
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\bin\Debug\net6.0\FormalBlog.Core.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\bin\Debug\net6.0\ref\FormalBlog.Core.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\bin\Debug\net6.0\FormalBlog.Core.pdb
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\bin\Debug\net6.0\FormalBlog.Infrastructure.pdb
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\FormalBlog.Core.csproj.CopyComplete
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\FormalBlog.Core.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\ref\FormalBlog.Core.dll
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\obj\Debug\net6.0\FormalBlog.Core.pdb
+D:\Project\Database\New folder\FormalBlog\FormalBlog.Core\bin\Debug\net6.0\appsettings.json
