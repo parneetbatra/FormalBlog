@@ -4,6 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FormalBlog</title>
+
+    <meta name="title" content="@ViewData["Title"]">
+    <meta name="description" content="@ViewData["MetaDescription"]">
+    <meta name="keywords" content="@ViewData["MetaKeyword"]">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="@ViewData["URL"]">
+    <meta property="og:title" content="@ViewData["Title"]">
+    <meta property="og:description" content="@ViewData["MetaDescription"]">
+    <meta property="og:image" content="@ViewData["Image"]">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="@ViewData["URL"]">
+    <meta property="twitter:title" content="@ViewData["Title"]">
+    <meta property="twitter:description" content="@ViewData["MetaDescription"]">
+    <meta property="twitter:image" content="@ViewData["Image"]">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+
+    @if (ViewData["Title"] != null)
+    {
+        <meta name="author" content="@ViewData["Title"]">
+    }
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>

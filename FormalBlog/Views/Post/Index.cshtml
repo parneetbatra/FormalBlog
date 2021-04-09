@@ -1,0 +1,23 @@
+﻿@model FormalBlog.Infrastructure.ViewModels.Response
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["MetaDescription"] = "";
+    ViewData["MetaKeyword"] = "";
+
+    ViewData["URL"] = "";
+    ViewData["Image"] = "";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (Model.Status == "Success")
+    {
+        FormalBlog.Infrastructure.Models.Post Post = (FormalBlog.Infrastructure.Models.Post)Model.Output;
+
+        <h1>@Post.Title</h1>
+
+        @Html.Raw(Post.Description)
+    }
+}

@@ -9,7 +9,7 @@ build_property.RootNamespace = FormalBlog
 build_property.ProjectDir = D:\Project\Database\New folder\FormalBlog\FormalBlog\
 build_property.RazorLangVersion = 5.0
 build_property.MSBuildProjectDirectory = D:\Project\Database\New folder\FormalBlog\FormalBlog
-build_property.DesignTimeBuild = 
+build_property.DesignTimeBuild = true
 build_property._RazorReferenceAssemblyTagHelpersOutputPath = D:\Project\Database\New folder\FormalBlog\FormalBlog\obj\Debug\net6.0\RazorTagHelper.refs.out.cache
 build_property._RazorSourceGeneratorDebug = 
 build_property._RazorSourceGeneratorLog = 
@@ -29,6 +29,12 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/Project/Database/New folder/FormalBlog/FormalBlog/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Views\Home\Privacy.cshtml
 build_metadata.AdditionalFiles.GeneratedOutputFullPath = D:\Project\Database\New folder\FormalBlog\FormalBlog\obj\Debug\net6.0\Razor\Views\Home\Privacy.cshtml.g.cs
+build_metadata.AdditionalFiles.GeneratedDeclarationFullPath = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Database/New folder/FormalBlog/FormalBlog/Views/Post/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Views\Post\Index.cshtml
+build_metadata.AdditionalFiles.GeneratedOutputFullPath = D:\Project\Database\New folder\FormalBlog\FormalBlog\obj\Debug\net6.0\Razor\Views\Post\Index.cshtml.g.cs
 build_metadata.AdditionalFiles.GeneratedDeclarationFullPath = 
 build_metadata.AdditionalFiles.CssScope = 
 

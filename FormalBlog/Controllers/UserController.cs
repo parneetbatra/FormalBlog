@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using FormalBlog.Infrastructure.EntityFramework;
 using System;
 using FormalBlog.Core.Attributes;
 
@@ -8,19 +7,11 @@ namespace FormalBlog.Controllers
 {
     public class UserController : Controller
     {
-        private DatabaseContext db;
-        public UserController(DatabaseContext context)
-        {
-            db = context;
-        }
-
         [HttpGet]
         [Route("GetAll/{PageNo}/{PageSize}/{Search}")]
         public Infrastructure.ViewModels.Response GetAll(int PageNo, int PageSize, string Search)
         {
-            Core.Services.User User = new Core.Services.User(db);
-
-            return User.GetAll(PageNo, PageSize, Search);
+            return Core.Services.User.GetAll(PageNo, PageSize, Search);
         }
 
         [HttpGet]
@@ -35,18 +26,7 @@ namespace FormalBlog.Controllers
         [Route("Login")]
         public Infrastructure.ViewModels.Response Login([FromForm] Infrastructure.ViewModels.User.Login model)
         {
-            Core.Services.User UserService = new Core.Services.User(db);
-            Infrastructure.ViewModels.Response Response = new Infrastructure.ViewModels.Response();
-
-            try
-            {
-                return UserService.Authenticate(model);
-            }
-            catch (Exception ex)
-            {
-                Core.Helper.Error(ex);
-            }
-            return Response;
+            return Core.Services.User.Authenticate(model);
         }
 
         [AllowAnonymous]
@@ -55,9 +35,8 @@ namespace FormalBlog.Controllers
         public Infrastructure.ViewModels.Response Create(Infrastructure.ViewModels.User.Signup model)
         {
             model.LastLoginIP = HttpContext.Request.HttpContext.Connection.RemoteIpAddress.ToString();
-            Core.Services.User User = new Core.Services.User(db);
 
-            return User.Create(model);
+            return Core.Services.User.Create(model);
         }
 
         [AllowAnonymous]
@@ -65,9 +44,7 @@ namespace FormalBlog.Controllers
         [Route("ResentEmail")]
         public Infrastructure.ViewModels.Response ResentEmail(string Email)
         {
-            Core.Services.User User = new Core.Services.User(db);
-
-            return User.ResentEmail(Email);
+            return Core.Services.User.ResentEmail(Email);
         }
 
         [AllowAnonymous]
@@ -75,46 +52,27 @@ namespace FormalBlog.Controllers
         [Route("ForgetPassword")]
         public Infrastructure.ViewModels.Response ForgetPassword(string Email)
         {
-            Core.Services.User User = new Core.Services.User(db);
-
-            return User.ForgetPassword(Email);
+            return Core.Services.User.ForgetPassword(Email);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("User/{id}")]
         public Infrastructure.ViewModels.Response GetById(int id)
         {
-            Core.Services.User User = new Core.Services.User(db);
-            try
-            {
-                return User.GetById(id);
-            }
-            catch (Exception ex)
-            {
-                Core.Helper.Error(ex);
-                return null;
-            }
-            finally
-            {
-                User = null;
-            }
+            return Core.Services.User.GetById(id);
         }
 
         [HttpPost]
         [Route("GetByEmail")]
         public Infrastructure.ViewModels.Response GetByEmail(string email)
         {
-            Core.Services.User User = new Core.Services.User(db);
-
-            return User.GetByEmail(email);
+            return Core.Services.User.GetByEmail(email);
         }
 
         [HttpPut]
         [Route("")]
         public Infrastructure.ViewModels.Response Update(Infrastructure.Models.User model)
         {
-            Core.Services.User User = new Core.Services.User(db);
-
-            return User.Update(model);
+            return Core.Services.User.Update(model);
         }
 
 
@@ -122,27 +80,21 @@ namespace FormalBlog.Controllers
         [Route("NewPassword")]
         public Infrastructure.ViewModels.Response NewPassword(string GUID, DateTime ResetPasswordCodeDate, string NewPassword)
         {
-            Core.Services.User User = new Core.Services.User(db);
-
-            return User.NewPassword(GUID, ResetPasswordCodeDate, NewPassword);
+            return Core.Services.User.NewPassword(GUID, ResetPasswordCodeDate, NewPassword);
         }
 
         [HttpPost]
         [Route("ChangePassword")]
         public Infrastructure.ViewModels.Response ChangePassword(string Email, string OldPassword, string NewPassword)
         {
-            Core.Services.User User = new Core.Services.User(db);
-
-            return User.ChangePassword(Email, OldPassword, NewPassword);
+            return Core.Services.User.ChangePassword(Email, OldPassword, NewPassword);
         }
 
         [HttpDelete]
         [Route("")]
         public Infrastructure.ViewModels.Response Delete(Infrastructure.Models.User model)
         {
-            Core.Services.User User = new Core.Services.User(db);
-
-            return User.Update(model);
+            return Core.Services.User.Update(model);
         }
 
     }

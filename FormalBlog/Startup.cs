@@ -30,6 +30,10 @@ namespace FormalBlog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var Config = Configuration.GetSection("AppSettings");
+            services.Configure<Infrastructure.ViewModels.AppSettings>(Config);
+            Core.Helper.AppSettings = Config.Get<Infrastructure.ViewModels.AppSettings>();
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddAuthentication("CookieAuthentication")
@@ -42,16 +46,6 @@ namespace FormalBlog
 
             services.AddScoped<IAuthorizationHandler, RoleAuthorization>();
 
-            //services.AddControllersWithViews().AddJsonOptions(jsonOptions =>
-            //{
-            //    jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
-            //})
-            //.SetCompatibilityVersion(CompatibilityVersion.Latest);
-
-            // For Entity Framework 
-            //string MySqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
-            //services.AddDbContext<DatabaseContext>(options => options.UseMySql(MySqlConnectionString));
-
             string MySqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DatabaseContext>(options => options.UseMySql(MySqlConnectionString, ServerVersion.AutoDetect(MySqlConnectionString), b => b.MigrationsAssembly("FormalBlog.Infrastructure")));
 
@@ -59,8 +53,11 @@ namespace FormalBlog
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseContext dataContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseContext dataContext, IServiceProvider provider)
         {
+            IServiceScope scope = provider.CreateScope();
+            Helper.db = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
+
             // migrate any database changes on startup (includes initial db creation)
             dataContext.Database.Migrate();
 

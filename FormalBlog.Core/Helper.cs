@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using FormalBlog.Infrastructure.EntityFramework;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Text;
@@ -12,6 +13,13 @@ namespace FormalBlog.Core
         public static string CurrentRootDomain = string.Empty;
         public static string WebRootPath = string.Empty;
 
+        public static DatabaseContext db;
+
+        /// <summary>
+        /// App Settings
+        /// </summary>
+        public static Infrastructure.ViewModels.AppSettings AppSettings = null;
+
         public static string AppSettingsSecret = string.Empty;
         public static string ConnectionString = string.Empty;
         public static IConfiguration Configuration;
@@ -20,7 +28,7 @@ namespace FormalBlog.Core
         {
             try
             {
-                string FilePath = System.IO.Path.Combine(WebRootPath, "temp/errors/" + DateTime.UtcNow.ToString("yyyy-MM-dd") + ".txt");
+                string FilePath = System.IO.Path.Combine(WebRootPath, "temp\\errors\\" + DateTime.UtcNow.ToString("yyyy-MM-dd") + ".txt");
 
                 using (StreamWriter writer = new StreamWriter(FilePath, true))
                 {
