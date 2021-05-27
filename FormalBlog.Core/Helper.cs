@@ -1,4 +1,4 @@
-﻿using FormalBlog.Infrastructure.EntityFramework;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
@@ -13,7 +13,7 @@ namespace FormalBlog.Core
         public static string CurrentRootDomain = string.Empty;
         public static string WebRootPath = string.Empty;
 
-        public static DatabaseContext db;
+        public static DbContextOptionsBuilder dbContextOptions;
 
         /// <summary>
         /// App Settings

@@ -20,7 +20,7 @@ namespace FormalBlog.Core.Services
 
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.Email == Login.Email && x.Password == Core.Encryption.Encrypt(Login.Password) && x.Active == true && x.EmailVerified == true).FirstOrDefault();
 
@@ -80,6 +80,10 @@ namespace FormalBlog.Core.Services
 
                     return Response;
                 }
+
+                Response.Status = "Error";
+                Response.Message = "Invalid email or/and password.";
+                return Response;
             }
             catch (Exception ex)
             {
@@ -105,7 +109,7 @@ namespace FormalBlog.Core.Services
 
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     int TotalRecords = db.Users.ToList().Count();
 
@@ -167,7 +171,7 @@ namespace FormalBlog.Core.Services
 
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.Email == model.Email).FirstOrDefault();
 
@@ -249,7 +253,7 @@ namespace FormalBlog.Core.Services
 
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.Id == model.Id).FirstOrDefault();
                     if (User != null)
@@ -296,7 +300,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.User User = new Infrastructure.Models.User();
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.Id == Id).FirstOrDefault();
                     if (User != null)
@@ -339,7 +343,7 @@ namespace FormalBlog.Core.Services
             {
                 if (!string.IsNullOrEmpty(Email))
                 {
-                    using (var db = Helper.db)
+                    using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                     {
                         User = db.Users.Where(x => x.Email == Email).FirstOrDefault();
                         if (User != null)
@@ -382,7 +386,7 @@ namespace FormalBlog.Core.Services
 
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.Id == Id).FirstOrDefault();
                     if (User != null)
@@ -428,7 +432,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.User User = new Infrastructure.Models.User();
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.Email == Email).FirstOrDefault();
                     if (User != null)
@@ -469,7 +473,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.User User = new Infrastructure.Models.User();
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.ResetPasswordCode == GUID).FirstOrDefault();
                     if (User != null)
@@ -523,7 +527,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.User User = new Infrastructure.Models.User();
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.Email == Email && x.Password == OldPassword).FirstOrDefault();
                     if (User != null)
@@ -569,7 +573,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.User User = new Infrastructure.Models.User();
             try
             {
-                using (var db = Helper.db)
+                using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     User = db.Users.Where(x => x.Email == Email && x.EmailVerified == false).FirstOrDefault();
                     if (User != null)

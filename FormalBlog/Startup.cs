@@ -49,6 +49,8 @@ namespace FormalBlog
             string MySqlConnectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DatabaseContext>(options => options.UseMySql(MySqlConnectionString, ServerVersion.AutoDetect(MySqlConnectionString), b => b.MigrationsAssembly("FormalBlog.Infrastructure")));
 
+            Helper.dbContextOptions = new DbContextOptionsBuilder<DatabaseContext>().UseMySql(MySqlConnectionString, ServerVersion.AutoDetect(MySqlConnectionString), b => b.MigrationsAssembly("FormalBlog.Infrastructure"));
+
             services.AddControllersWithViews();
         }
 
@@ -56,7 +58,6 @@ namespace FormalBlog
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseContext dataContext, IServiceProvider provider)
         {
             IServiceScope scope = provider.CreateScope();
-            Helper.db = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
 
             // migrate any database changes on startup (includes initial db creation)
             dataContext.Database.Migrate();

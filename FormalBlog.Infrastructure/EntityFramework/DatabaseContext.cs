@@ -10,7 +10,7 @@ namespace FormalBlog.Infrastructure.EntityFramework
 
         //}
 
-        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
+        public DatabaseContext(DbContextOptions options) : base(options)
         {
         }
 

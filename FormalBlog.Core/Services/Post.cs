@@ -14,7 +14,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.ViewModels.Post.Paging Post = new Infrastructure.ViewModels.Post.Paging();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     if (String.IsNullOrEmpty(Search))
                     {
@@ -71,7 +71,7 @@ namespace FormalBlog.Core.Services
             {
                 if (Model != null)
                 {
-                    using (var db = Helper.db)
+                  using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                     {
                         db.Posts.Add(Model);
                         db.SaveChanges();
@@ -114,7 +114,7 @@ namespace FormalBlog.Core.Services
 
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Post = db.Posts.Where(x => x.Id == Model.Id).FirstOrDefault();
                     if (Post != null)
@@ -157,7 +157,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.Post Post = new Infrastructure.Models.Post();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Post = db.Posts.Where(x => x.Id == Id).FirstOrDefault();
                     if (Post != null)
@@ -196,7 +196,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.Post Post = new Infrastructure.Models.Post();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Post = db.Posts.Where(x => x.UserId == UserId).FirstOrDefault();
                     if (Post != null)
@@ -235,7 +235,7 @@ namespace FormalBlog.Core.Services
             List<Infrastructure.Models.Post> Post = new List<Infrastructure.Models.Post>();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Post = db.Posts.Where(x => x.Status == Status).ToList();
                     if (Post != null)
@@ -274,7 +274,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.Post Post = new Infrastructure.Models.Post();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Post = db.Posts.Where(x => x.URL == URL).FirstOrDefault();
                     if (Post != null)
@@ -313,7 +313,7 @@ namespace FormalBlog.Core.Services
             List<Infrastructure.Models.Post> Posts = new List<Infrastructure.Models.Post>();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Posts = db.Posts.Where(x => x.Title.Contains(Keyword) || x.Description.Contains(Keyword)).ToList();
                     if (Posts.Count() > 0)
@@ -352,7 +352,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.Post Post = new Infrastructure.Models.Post();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Post = db.Posts.Where(x => x.Id == Id).FirstOrDefault();
                     if (Post != null)

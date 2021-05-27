@@ -14,7 +14,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.ViewModels.Subscribe.Paging Subscribe = new Infrastructure.ViewModels.Subscribe.Paging();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     if (String.IsNullOrEmpty(Search))
                     {
@@ -72,7 +72,7 @@ namespace FormalBlog.Core.Services
             {
                 if (Model != null)
                 {
-                    using (var db = Helper.db)
+                  using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                     {
                         Subscribe = db.Subscribers.Where(x => x.Email == Model.Email).FirstOrDefault();
                         if (Subscribe == null)
@@ -142,7 +142,7 @@ namespace FormalBlog.Core.Services
 
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Subscribe = db.Subscribers.Where(x => x.Id == Model.Id).FirstOrDefault();
                     if (Subscribe != null)
@@ -185,7 +185,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.Subscribe Subscribe = new Infrastructure.Models.Subscribe();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Subscribe = db.Subscribers.Where(x => x.Id == Id).FirstOrDefault();
                     if (Subscribe != null)
@@ -224,7 +224,7 @@ namespace FormalBlog.Core.Services
             Infrastructure.Models.Subscribe Subscribe = new Infrastructure.Models.Subscribe();
             try
             {
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Subscribe = db.Subscribers.Where(x => x.Email == Email).FirstOrDefault();
                     if (Subscribe != null)
@@ -266,7 +266,7 @@ namespace FormalBlog.Core.Services
                 Email = Core.Encryption.Decrypt(Email);
                 Id = Core.Encryption.Decrypt(Id);
 
-                using (var db = Helper.db)
+              using (var db = new DatabaseContext(Helper.dbContextOptions.Options))
                 {
                     Subscribe = db.Subscribers.Where(x => x.Id == Convert.ToInt32(Id) && x.Email == Email).FirstOrDefault();
                     if (Subscribe != null)
